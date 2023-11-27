@@ -1,6 +1,9 @@
+<script setup lang="ts">
+// Make this automatic based on login
+const layout = "app";
+</script>
 <template>
-  <div class="w-1/3 bg-gray-800">
-    <h1>HellowWolrd </h1>
-    <!-- <NuxtWelcome /> -->
-  </div>
+  <NuxtLayout :name="layout">
+    <NuxtPage />
+  </NuxtLayout>
 </template>
