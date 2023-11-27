@@ -57,7 +57,7 @@ definePageMeta({
         <!-- Summary  -->
 
         <section class="mx-auto w-full px-4 md:max-w-[400px]">
-            <OrderSummary />
+            <OrderSummary :items="cartData" />
         </section>
       </section>
 
