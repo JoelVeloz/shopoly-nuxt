@@ -9,6 +9,9 @@ const props = defineProps<{
     filter: IFilter
 }>()
 
+const {getItemsByCategory, getAllItems} = useItem();
+const selected = ref(null);
+
 const getCurrencySymbol = () => {
     if (isPriceFilter(props.filter)) {
         switch (props.filter.currency) {
@@ -22,16 +25,35 @@ const getCurrencySymbol = () => {
         }
     }
 }
+
+watch(selected, (newSel)=> {
+    if(newSel != null) {
+        getItemsByCategory(newSel?.id)
+    }
+    else {
+        getAllItems()
+    }
+
+})
+
+onUnmounted(()=> {
+    getAllItems()
+})
 </script>
 <template>
     <div class="w-full" v-if="isCategoryFilter(filter)">
-        <p class="mb-3 font-medium uppercase">{{ filter.title }}</p>
-
-        <div v-for="(keyword, index) in filter.keywords" class="flex w-full justify-between">
+        <p class="mb-3 font-medium uppercase">{{ filter.title }} </p>
+       
+        <USelectMenu v-model="selected" :options="[...filter.keywords]" option-attribute="key" >
+            <template #label>
+                {{ selected?.key ?? 'Todas' }}
+            </template>   
+        </USelectMenu>
+        <!-- <div v-for="(keyword, index) in filter.keywords" class="flex w-full justify-between">
             <BaseCheckbox :key="`${filter.title}-${keyword.key}-${index}`" :total="keyword.results" >
                 {{ keyword.key }}
             </BaseCheckbox>
-        </div>
+        </div> -->
 
     </div>
     <div class="w-full" v-if="isPriceFilter(filter)">

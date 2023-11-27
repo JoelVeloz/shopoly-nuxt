@@ -15,6 +15,7 @@ const filters: Ref<(IFilter)[]> = ref([
     title: 'Categorías',
     keywords: categoriesData.value.map((currValue) => {
       return {
+        id: currValue.id ?? 'Unknown',
         key: currValue.name??'Unknown',
         results: 10
       }

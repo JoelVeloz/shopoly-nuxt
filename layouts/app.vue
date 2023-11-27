@@ -12,10 +12,13 @@ const triggers = ref<string[]>([]);
 provide('triggers', triggers)
 
 const { getAllCategories, loading: loadingCategories } = useCategory();
+
+const { getAllSettings, loading: loadingSettings } = useSettings();
 const { getAllItems, loading: loadingItems } = useItem();
 onMounted(() => {
     getAllCategories();
     getAllItems();
+    getAllSettings();
 })
 
 useHead({
@@ -24,7 +27,6 @@ useHead({
 </script>
 <template>
     <ClientOnly>
-
         <TheHeader />
         <TheNavbar />
 

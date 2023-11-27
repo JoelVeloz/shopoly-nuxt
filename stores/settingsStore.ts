@@ -1,13 +1,13 @@
 import type { ApiResponse } from '@/interfaces/IApiResponse';
-import type { IItem } from '@/interfaces/IItem';
+import type { ISettings } from '@/interfaces/ISettings';
 import { defineStore, acceptHMRUpdate } from 'pinia'
 
-export interface IQueryItemState extends Omit<IState, 'data'> {
-    data: IItem[]
+export interface ISettingsState extends IState {
+    data: ISettings[]
 }
 
-export const useQueryItemStore = defineStore('queryItemStore', {
- state: (): IQueryItemState => ({
+export const useSettingsStore = defineStore('settingsStore', {
+ state: (): ISettingsState => ({
   data: [],
   
   loading: false,
@@ -23,9 +23,10 @@ export const useQueryItemStore = defineStore('queryItemStore', {
  getters: {},
  actions: {
     
-    loadItem(response:ApiResponse) {
+    loadSettings(response:ApiResponse) {
             
         this.data = response.data;
+        
         this.totalResults = response.total;
         this.page = response.current_page;
         this.totalPages = response.last_page;           
@@ -36,7 +37,6 @@ export const useQueryItemStore = defineStore('queryItemStore', {
 })
 
 if (import.meta.hot) {
- import.meta.hot.accept(acceptHMRUpdate(useQueryItemStore, import.meta.hot))
+ import.meta.hot.accept(acceptHMRUpdate(useSettingsStore, import.meta.hot))
 }
-
 

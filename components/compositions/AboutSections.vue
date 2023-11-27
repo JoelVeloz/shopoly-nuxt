@@ -20,8 +20,8 @@ defineProps<{
     class="col-span-12"/>
     
     <section class="col-span-12 flex-grow my-10" v-else-if="section.type ==='logo'">
-        <div class="my-6 flex flex-col gap-3">
-            <CompanyLogo class="mx-auto" :size="'lg'" />
+        <div class="my-6 flex flex-col gap-3  items-center">
+            <CompanyLogo :class="`mx-auto`" :size="'lg'" />
             <p class="text-center text-sm">{{section.title ?? "Desde 1999"}}</p>
         </div>
     </section>

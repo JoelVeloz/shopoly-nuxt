@@ -1,18 +1,20 @@
+
 <script setup lang="ts">
-    import CompanyLogo from '@components/CompanyLogo.vue';
-    // import GroupedLinks from '@components/compositions/GroupedLinks.vue';
-    import {linkedin, linkedin_dark, github, github_dark, telegram, telegram_dark} from '@@/constants/assets';
+//@ts-nocheck
+import CompanyLogo from '@components/CompanyLogo.vue';
+  import {linkedin, linkedin_dark, github, github_dark, telegram, telegram_dark} from '@@/constants/assets';
     import { useDark } from '@vueuse/core';
 
+    const { data  } = useSettings();
     const isDark = useDark();
 
     const socialNetworks =() => (isDark.value ? [
-        {image: linkedin_dark, link: "https://www.linkedin.com/in/joel-veloz-233305211/"},
-        {image: github_dark, link: "https://github.com/JoelVeloz"},
-        {image: telegram_dark, link: "https://wa.link/wwzttw"}
-    ] : [ {image: linkedin, link: "https://www.linkedin.com/in/joel-veloz-233305211/"},
-        {image: github, link: "https://github.com/JoelVeloz"},
-        {image: telegram, link: "https://wa.link/wwzttw"}])
+        {image: linkedin_dark, link: data.value?.settings?.facebook_url ?? null },
+        {image: github_dark, link: data.value?.settings?.instagram_url ?? null},
+        {image: telegram_dark, link: data.value?.settings?.tiktok_url ?? null}
+    ] : [ {image: linkedin, link: data.value?.settings?.facebook_url ?? null},
+        {image: github, link: data.value?.settings?.instagram_url ?? null},
+        {image: telegram, link: data.value?.settings?.tiktok_url ?? null}])
 
     // const footerGroups = [
     //     {
@@ -50,7 +52,7 @@
         </p>
         <div class="mt-10 flex gap-3 ">
           <a :href="socialnwk.link" v-for="(socialnwk) in socialNetworks()" :key="socialnwk.link">
-            <img
+            <img v-if="socialnwk.link != null"
               class="h-5 w-5 cursor-pointer"
               :src="socialnwk.image"
               alt="social network icon"

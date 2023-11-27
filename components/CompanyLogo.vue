@@ -16,11 +16,15 @@ const size = computed(() => {
     if (props.size == 'lg') {
         return 'w-[200px]'
     }
-    return 'sm:h-auto sm:w-auto'
+    return 'w-[100px] w-auto object-cover my-2'
 });
+
+const { data } = useSettings()
 
 </script>
 <template>
-    <img v-if="isDark" :src="logo_dark" :class="size" alt="company logo" />
-    <img v-else :class="size" :src="logo_light" alt="company logo" />
+    <ClientOnly>
+        <img v-if="isDark" :src="  logo_dark" :class="size" alt="company logo" />
+        <img v-else :class="size" :src="logo_light" alt="company logo" />
+    </ClientOnly>
 </template>

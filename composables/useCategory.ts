@@ -29,6 +29,7 @@ export const useCategory = () => {
         loading.value = false;
       });
   };
+  
   const findCategory = async (dto: ICategory) => {}; //TODO CHANGE CATEGORY DTOS
   const createCategory = async (payload: ICategory) => {};
   const updateCategory = async (id: string | number, payload: any) => {};
