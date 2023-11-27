@@ -1,4 +1,7 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+const {data, getAllCategories }  = useCategory();
+getAllCategories();
+</script>
 
 <template>
   <div>

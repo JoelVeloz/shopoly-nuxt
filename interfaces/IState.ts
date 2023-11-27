@@ -6,7 +6,7 @@ interface IState {
     page: number;
     totalPages: number;
     totalResults: number;
-    nextPageUrl?: string| number |null
-    prevPageUrl?: string | number| null
+    nextPageUrl: string| number |null | undefined;
+    prevPageUrl: string | number| null | undefined
     
 }
