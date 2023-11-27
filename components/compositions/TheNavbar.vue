@@ -105,7 +105,7 @@ onMounted(() => {
 
             </div>
 
-            <!-- <div class="ml-auto flex gap-4 px-5">
+            <div class="ml-auto flex gap-4 px-5">
                 
                 <NuxtLink class="font-light text-white duration-100 hover:text-yellow-400 hover:underline"
                     to="/login">Login</NuxtLink>
@@ -114,7 +114,7 @@ onMounted(() => {
 
                 <NuxtLink class="font-light text-white duration-100 hover:text-yellow-400 hover:underline"
                     to="/signup">Sign Up</NuxtLink>
-            </div> -->
+            </div>
         </div>
     </nav>
     <!-- /Nav bar -->
