@@ -1,13 +1,13 @@
 <script setup lang="ts">
 
 import FilterGroup from '@components/FilterGroup.vue';
-import { IFilter } from "@@/interfaces/IFilter.ts";
-import { ICategoryFilter } from "@@/interfaces/ICategoryFilter.ts";
+import type { IFilter } from "@/interfaces/IFilter";
+import type { ICategoryFilter } from "@/interfaces/ICategoryFilter";
 import { useCategory } from '@@/composables/useCategory';
-import { Ref,ref } from 'vue';
-// import { IPriceFilter } from "@@/interfaces/IPriceFilter.ts";
-// import { IAttributeFilter } from "@@/interfaces/IAttributeFilter.ts";
-// import { IColorFilter } from "@@/interfaces/IColorFilter.ts";
+import { type Ref,ref } from 'vue';
+// import { IPriceFilter } from "@/interfaces/IPriceFilter.ts";
+// import { IAttributeFilter } from "@/interfaces/IAttributeFilter.ts";
+// import { IColorFilter } from "@/interfaces/IColorFilter.ts";
 
 const { data:categoriesData, loading } = useCategory();
 const filters: Ref<(IFilter)[]> = ref([

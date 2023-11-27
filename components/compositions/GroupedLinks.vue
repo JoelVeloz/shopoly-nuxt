@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ILink } from "@@/interfaces/ILink.ts";
+import { ILink } from "@/interfaces/ILink.ts";
 
 defineProps<{
     title?: string,

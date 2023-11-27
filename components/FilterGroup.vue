@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import BaseCheckbox from "@components/BaseCheckbox.vue";
-import { IFilter } from "@@/interfaces/IFilter.ts";
-import { isCategoryFilter } from "@@/interfaces/ICategoryFilter.ts";
-import { isPriceFilter } from "@@/interfaces/IPriceFilter.ts";
-import { isAttributeFilter } from "@@/interfaces/IAttributeFilter.ts";
-import { isColorFilter } from "@@/interfaces/IColorFilter.ts";
+import { type IFilter } from "@/interfaces/IFilter";
+import { isCategoryFilter } from "@/interfaces/ICategoryFilter";
+import { isPriceFilter } from "@/interfaces/IPriceFilter";
+import { isAttributeFilter } from "@/interfaces/IAttributeFilter";
+import { isColorFilter } from "@/interfaces/IColorFilter";
 const props = defineProps<{
     filter: IFilter
 }>()

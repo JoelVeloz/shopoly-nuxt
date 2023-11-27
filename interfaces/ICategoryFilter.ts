@@ -1,4 +1,4 @@
-import { IFilter } from "@@/interfaces/IFilter";
+import { IFilter } from "@/interfaces/IFilter";
 
 export interface ICategoryFilter extends IFilter {
     keywords: ({key:string, results: number})[];

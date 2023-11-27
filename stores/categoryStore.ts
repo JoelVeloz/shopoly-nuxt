@@ -1,5 +1,5 @@
-import type { ApiResponse } from '@@/interfaces/IApiResponse';
-import type { ICategory } from '@@/interfaces/ICategory';
+import type { ApiResponse } from '@/interfaces/IApiResponse';
+import type { ICategory } from '@/interfaces/ICategory';
 import { defineStore, acceptHMRUpdate } from 'pinia'
 
 export interface ICategoryState extends IState {

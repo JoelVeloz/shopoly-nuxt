@@ -3,7 +3,7 @@ import LoaderComponent from '@@/components/LoaderComponent.vue'
 import CatalogFilters from '@@/components/compositions/CatalogFilters.vue';
 import ProductCard from '@@/components/ProductCard.vue';
 import GridOptions from '@components/compositions/GridOptions.vue'
-import { IItem } from '@@/interfaces/IItem';
+import type { IItem } from '@/interfaces/IItem';
 
 
 defineProps<{

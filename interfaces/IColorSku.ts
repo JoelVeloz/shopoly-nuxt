@@ -1,4 +1,4 @@
-import { IColorFilter } from "@@/interfaces/IColorFilter";
+import { IColorFilter } from "@/interfaces/IColorFilter";
 import { ISku } from "./ISku";
 
 export interface IColorSku extends  Omit<ISku, 'keywords' | 'type'>, Pick<IColorFilter, 'keywords' | 'type'>{

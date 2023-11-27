@@ -6,7 +6,7 @@ export default defineNuxtConfig({
   },
   pages: true,
   devtools: { enabled: true },
-  modules: ["@nuxt/ui", "@pinia/nuxt", "@vueuse/nuxt"],
+  modules: ["@nuxt/ui", "@pinia/nuxt", "@vueuse/nuxt", 'nuxt-swiper'],
   pinia: {
     storesDirs: ["./stores/**"],
   },

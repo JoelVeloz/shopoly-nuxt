@@ -5,7 +5,7 @@ import CompanyLogo from '@components/CompanyLogo.vue';
 import DarkModeButton from '@components/DarkModeButton.vue';
 
 import { ref } from 'vue';
-import { type ILink } from '@@/interfaces/ILink';
+import { type ILink } from '@/interfaces/ILink';
 
 const mobileMenuOpen = ref(false);
 const headerRoutes: Record<string, ILink> = {

@@ -1,6 +1,6 @@
 
-import type { ICategory } from "@@/interfaces/ICategory";
-import { useCategoryStore } from "@@/stores/categoryStore";
+import type { ICategory } from "@/interfaces/ICategory";
+import { useCategoryStore } from "@/stores/categoryStore";
 import { storeToRefs } from "pinia";
 
 export const useCategory = () => {

@@ -2,8 +2,8 @@
 
 import TheBreadcrumbs from '@@/components/compositions/TheBreadcrumbs.vue';
 import CatalogTable from '@@/components/compositions/CatalogTable.vue';
-import { IItem } from '@@/interfaces/IItem';
-import { ISection } from '@@/interfaces/ISection';
+import type { IItem } from '@/interfaces/IItem';
+import type { ISection } from '@/interfaces/ISection';
 
 
 defineProps<{

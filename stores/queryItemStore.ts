@@ -1,5 +1,5 @@
-import type { ApiResponse } from '@@/interfaces/IApiResponse';
-import type { IItem } from '@@/interfaces/IItem';
+import type { ApiResponse } from '@/interfaces/IApiResponse';
+import type { IItem } from '@/interfaces/IItem';
 import { defineStore, acceptHMRUpdate } from 'pinia'
 
 export interface IItemState extends Omit<IState, 'data'> {

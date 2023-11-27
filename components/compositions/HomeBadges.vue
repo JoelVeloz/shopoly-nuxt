@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import BaseIcon from '@components/BaseIcon.vue';
-import { IBadge } from "@@/interfaces/IBadge.ts";
+import { type IBadge } from "@/interfaces/IBadge";
 
 defineProps<{
   badges: IBadge[]

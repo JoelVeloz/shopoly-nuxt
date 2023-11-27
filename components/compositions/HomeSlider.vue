@@ -1,11 +1,10 @@
 <script setup lang="ts">
-// @ts-nocheck
 
 import { product_detailp, kitchenp, mattrassp, bedroomp, product_chairp, product_sofap } from '@@/constants/assets';
-import { IProduct } from '@@/interfaces/IProduct';
-import { SplideTrack, Splide, SplideSlide } from "@splidejs/vue-splide"
+import type { IProduct } from '@/interfaces/IProduct';
 import ProductCard from '@components/ProductCard.vue';
 import { useItem } from '@@/composables/useItem';
+
 
 const newArrivals: (IProduct)[] = [
   {
@@ -77,16 +76,39 @@ const options = {
 }
 </script>
 <template>
-  <section class="col-span-12 mx-auto max-w-[1200px] px-5 py-2" aria-label="Splide Basic HTML">
-    <Splide  :has-track="false" :options="options">
-      <SplideTrack class="mx-auto max-w-[1200px] ">
-        <!-- 1 -->
-        <SplideSlide   v-if="!loading" v-for="product in productData" :key="`${product.name}-${product.price}`">
-          <ProductCard  :product="product" />
-        </SplideSlide>
+  <Swiper :class="`col-span-12 mx-auto max-w-[1200px] px-5 py-2 w-full`"
+  :modules="[SwiperController,SwiperNavigation, SwiperPagination]"
+  :breakpoints="{
+      '640': {
+        slidesPerView: 2,
+      },
+      '768': {
+        slidesPerView: 4,
+      }
+    }"
+    :space-between="20"
+   :slides-per-view="1"
+    :loop="true"
+    :navigation="true"
+    :pagination="{
+      clickable: true
+    }"
+    :effect="'slide'"
+    
+    >
+
+    
+
+     
+        <!-- <ul class="splide__list" :class="`mx-auto max-w-[1200px]`"> -->
+            <SwiperSlide class="" v-if="!loading" v-for="product in productData"
+              :key="`${product.name}-${product.price}`">
+              <ProductCard :product="product" />
+            </SwiperSlide>
+          
 
 
-      </SplideTrack>
-    </Splide>
-  </section>
+        <!-- </ul> -->
+
+  </Swiper>
 </template>

@@ -1,4 +1,4 @@
-import { IFilter } from "@@/interfaces/IFilter";
+import { IFilter } from "@/interfaces/IFilter";
 
 export interface IPriceFilter extends IFilter {
     currency: 'dollar'|'euro'| 'cop';

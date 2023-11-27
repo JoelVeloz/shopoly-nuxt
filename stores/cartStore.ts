@@ -1,6 +1,6 @@
 import { ref } from "vue";
 import { defineStore } from "pinia";
-import type { IItem } from "@@/interfaces/IItem";
+import type { IItem } from "@/interfaces/IItem";
 
 export default defineStore('cart', () => {
 

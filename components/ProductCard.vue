@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import BaseIcon from '@components/BaseIcon.vue';
 import BaseButton from '@components/BaseButton.vue';
-import { IItem } from "@@/interfaces/IItem";
-import { imgplaceholder } from "@@/constants/assets.ts"
+import type { IItem } from "@/interfaces/IItem";
+import { imgplaceholder } from "@/constants/assets"
 import cartStore from '@@/stores/cartStore';
-import { Ref, inject } from 'vue';
+import { type Ref, inject } from 'vue';
 defineProps<{
   product: IItem
 }>()

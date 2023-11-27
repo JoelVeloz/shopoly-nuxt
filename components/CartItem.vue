@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { imgplaceholder } from '@@/constants/assets.ts';
-import { IItem } from '@@/interfaces/IItem';
+import { imgplaceholder } from '@/constants/assets';
+import { type IItem } from '@/interfaces/IItem';
 import cartStore from '@@/stores/cartStore';
 import BaseIcon from '@components/BaseIcon.vue';
 

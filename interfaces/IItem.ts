@@ -1,7 +1,7 @@
-import { BaseItem } from "./BaseItem";
-import { ICategory } from "./ICategory";
-import { IFile } from "./IFile";
-import { ISku } from "./ISku";
+import type { BaseItem } from "./BaseItem";
+import type { ICategory } from "./ICategory";
+import type { IFile } from "./IFile";
+import type { ISku } from "./ISku";
 
 export interface IItem extends BaseItem{
     name: string,

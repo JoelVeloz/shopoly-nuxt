@@ -6,7 +6,7 @@ import HomeSlider from '@@/components/compositions/HomeSlider.vue';
 import HomeOffer from '@@/components/compositions/HomeOffer.vue';
 import RecommendedProducts from '@components/compositions/RecommendedProducts.vue';
 import { useItem } from '@@/composables/useItem';
-import { ISection } from '@@/interfaces/ISection';
+import { type ISection } from '@/interfaces/ISection';
 
 defineProps<{
     section: ISection
@@ -40,7 +40,10 @@ const maxRecommendedItems = 8;
     <div v-else-if="section.type === 'slider'" class="col-span-12 mx-auto max-w-[1200px] w-full mt-12">
         <h2 class="px-5 mb-5">{{ section.title }}</h2>
         <!-- Slider  -->
-        <HomeSlider />
+        <ClientOnly>
+
+            <HomeSlider />
+        </ClientOnly>
         <!-- /Slider  -->
     </div>
 

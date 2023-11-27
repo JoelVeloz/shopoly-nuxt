@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { IItem } from '@@/interfaces/IItem';
+import type { IItem } from '@/interfaces/IItem';
 import ProductCard from '@components/ProductCard.vue';
 
  defineProps<{

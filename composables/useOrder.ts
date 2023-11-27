@@ -1,5 +1,5 @@
 
-import type { IOrderItem } from '@@/interfaces/IOrderItem';
+import type { IOrderItem } from '@/interfaces/IOrderItem';
 import { useOrderItemStore } from '@@/stores/orderStore';
 import { storeToRefs } from 'pinia';
 

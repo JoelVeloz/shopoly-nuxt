@@ -1,5 +1,5 @@
-import type { ApiResponse } from '@@/interfaces/IApiResponse';
-import type { IOrderItem } from '@@/interfaces/IOrderItem';
+import type { ApiResponse } from '@/interfaces/IApiResponse';
+import type { IOrderItem } from '@/interfaces/IOrderItem';
 import { defineStore, acceptHMRUpdate } from 'pinia'
 
 export interface IOrderItemState extends IState {

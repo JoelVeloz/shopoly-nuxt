@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ISubsidiary } from "@@/interfaces/ISubsidiary.ts"
+import { ISubsidiary } from "@/interfaces/ISubsidiary.ts"
 defineProps<{
     subsidiary: ISubsidiary
 }>()

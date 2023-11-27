@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ICategory } from "@@/interfaces/ICategory.ts";
+import { type ICategory } from "@/interfaces/ICategory";
 import { imgplaceholder } from '@@/constants/assets';
 import { useCategory } from "@@/composables/useCategory";
 import { onUpdated, ref } from "vue";
