@@ -5,7 +5,8 @@ import cartStore from '@@/stores/cartStore';
 import BaseIcon from '@components/BaseIcon.vue';
 
 defineProps<{
-    order_item: IItem
+    order_item: IItem,
+    edittable?: boolean
 }>()
 const { addItem, substractItem, removeItem } = cartStore();
 
@@ -60,7 +61,7 @@ const getTotalPrice = (order_it: IItem) => {
             <p class="py-3 text-xl font-bold text-violet-900">${{ order_item.price }}</p>
             <div class="mt-2 flex w-full items-center justify-between">
                 <div class="flex items-center justify-center">
-                    <button @click="substractItem(order_item)"
+                    <button @click="substractItem(order_item)" v-if="edittable ?? true"
                         class="flex h-8 w-8 cursor-pointer items-center justify-center border duration-100 hover:bg-neutral-100 focus:ring-2 focus:ring-gray-500 active:ring-2 active:ring-gray-500">
                         &minus;
                     </button>
@@ -68,13 +69,13 @@ const getTotalPrice = (order_it: IItem) => {
                         class="flex h-8 w-8 cursor-text items-center justify-center border-t border-b active:ring-gray-500">
                         {{ order_item?.data?.count ?? 0 }}
                     </div>
-                    <button @click="addItem(order_item)"
+                    <button @click="addItem(order_item)" v-if="edittable ?? true"
                         class="flex h-8 w-8 cursor-pointer items-center justify-center border duration-100 hover:bg-neutral-100 focus:ring-2 focus:ring-gray-500 active:ring-2 active:ring-gray-500">
                         &#43;
                     </button>
                 </div>
 
-                <div class="text-red-500" @click="removeItem(order_item)">
+                <div class="text-red-500" @click="removeItem(order_item)" v-if="edittable ?? true">
                     <BaseIcon :icon="'trash'"></BaseIcon>
 
                 </div>
@@ -95,21 +96,21 @@ const getTotalPrice = (order_it: IItem) => {
         <td class="mx-auto text-center">&#36;{{ order_item.price }}</td>
         <td class="align-middle">
             <div class="flex items-center justify-center">
-                <button @click="substractItem(order_item)"
+                <button @click="substractItem(order_item)" v-if="edittable ?? true"
                     class="flex h-8 w-8 cursor-pointer items-center justify-center border duration-100 hover:bg-neutral-100 focus:ring-2 focus:ring-gray-500 active:ring-2 active:ring-gray-500">
                     &minus;
                 </button>
                 <div class="flex h-8 w-8 cursor-text items-center justify-center border-t border-b active:ring-gray-500">
                     {{ order_item?.data?.count ?? 0 }}
                 </div>
-                <button @click="addItem(order_item)"
+                <button @click="addItem(order_item)" v-if="edittable ?? true"
                     class="flex h-8 w-8 cursor-pointer items-center justify-center border duration-100 hover:bg-neutral-100 focus:ring-2 focus:ring-gray-500 active:ring-2 active:ring-gray-500">
                     &#43;
                 </button>
             </div>
         </td>
         <td class="mx-auto text-center">&#36;{{ getTotalPrice(order_item) }}</td>
-        <td class="align-middle m-0 cursor-pointer text-red-500" @click="removeItem(order_item)">
+        <td class="align-middle m-0 cursor-pointer text-red-500" @click="removeItem(order_item)" v-if="edittable ?? true">
             <BaseIcon :icon="'trash'" />
         </td>
     </tr>
