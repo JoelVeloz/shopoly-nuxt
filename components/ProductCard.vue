@@ -10,8 +10,9 @@ defineProps<{
 }>()
 
 const triggers = inject<Ref<string[]>>('triggers'); 
+  const selectedProduct = inject<Ref<IItem>>('selectedProduct'); 
 
-const {addItem} = cartStore();
+const { addItem } = cartStore();
 
 const checkProductImage = (product: IItem) => {
   
@@ -72,7 +73,7 @@ const getPrice = (product: IItem) => {
     <div class="relative flex h-60">
       <img  class="object-cover" :src="checkProductImage(product)" :alt="`${product.name} image`" />
       <div class="absolute flex h-full w-full items-center justify-center gap-3 opacity-0 duration-150 hover:opacity-100">
-        <NuxtLink to="/product-detail">
+        <NuxtLink to="/product-detail" @click="selectedProduct= product">
           <span class="flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-amber-400">
             <BaseIcon icon="search-alt" />
           </span>

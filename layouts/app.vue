@@ -8,8 +8,12 @@ import LoaderComponent from '@@/components/LoaderComponent.vue';
 import { onMounted, provide, ref } from 'vue';
 import { useCategory } from '@@/composables/useCategory';
 import { useItem } from '@@/composables/useItem';
+import type { IItem } from '~/interfaces/IItem';
 const triggers = ref<string[]>([]);
+const selectedProduct = ref<IItem>();
+
 provide('triggers', triggers)
+provide('selectedProduct', selectedProduct)
 
 const { getAllCategories, loading: loadingCategories } = useCategory();
 
@@ -30,7 +34,7 @@ useHead({
         <TheHeader />
         <TheNavbar />
 
-        <div v-if="loadingCategories && loadingItems"
+        <div v-if="loadingCategories && loadingItems && loadingSettings"
             class="fixed top-0 w-screen h-screen flex justify-center items-center bg-gray-50 dark:bg-gray-950 z-50">
             <LoaderComponent :message="'Cargando algo fantástico...'" />
         </div>

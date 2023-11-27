@@ -86,7 +86,7 @@ onMounted(() => {
     <!-- Nav bar -->
     <!-- hidden on small devices -->
 
-    <nav class="relative bg-violet-900 z-0">
+    <nav class="relative bg-violet-900 z-0 py-auto">
         <div class="mx-auto hidden h-12 w-full max-w-[1200px] items-center md:flex">
             <BaseButton @click="desktopMenuOpen = !desktopMenuOpen"
                 class="ml-5 flex h-full w-40 cursor-pointer items-center justify-center bg-amber-400">

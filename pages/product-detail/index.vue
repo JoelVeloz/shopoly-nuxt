@@ -3,7 +3,7 @@
 
 import TheBreadcrumbs from '@/components/compositions/TheBreadcrumbs.vue';
 import RecommendedProducts from '@/components/compositions/RecommendedProducts.vue';
-import { kitchenp, outdoorp, living_roomp, product_detailp, product_chairp,product_sofap } from '@/constants/assets';
+import { kitchenp, outdoorp, living_roomp, product_detailp, product_chairp, product_sofap, imgplaceholder } from '@/constants/assets';
 
 import type { IProduct } from '@/interfaces/IProduct';
 
@@ -42,28 +42,88 @@ const recommendedProducts: (IProduct)[] = [
     }
 ]
 
+const { data } = useCategory();
+const selectedProduct = inject<Ref<IItem>>('selectedProduct');
+    
+
+const triggers = inject<Ref<string[]>>('triggers'); 
+
+
+const { addItem } = cartStore();
+const selectedImage = ref(selectedProduct?.value?.files[0]?.url ?? imgplaceholder);
+
+const amount = ref(1);
+
+const skus = ref({})
+const splitSkus = () => {
+
+    const combinations = selectedProduct?.value?.skus?.map((sku) => sku.combination)
+    if (combinations[0] == '') return;
+    combinations.map((comb: string) => {
+        let combSplitted = comb.split('-')
+
+        combSplitted.map((c) => {
+            let index = combSplitted?.indexOf(c);
+            if (skus.value[index] === undefined || skus.value[index] === null) {
+                skus.value[index] = new Set()
+                skus.value[index].add(c);
+            }
+            else {
+                skus.value[index].add(c)
+            }
+        })
+    })
+    Object.entries(skus?.value)?.map((skuEntry) => skus.value[skuEntry[0]] = [...skuEntry[1]])
+}
+
+const addAmount = () => {
+    if (amount.value < 10) {
+        amount.value++
+    }
+}
+
+const substractAmount = () => {
+    if (amount.value > 0) {
+        amount.value--
+    }
+}
+
+const submitItem = () => {
+    for(let i = 0; i < amount.value; i++) {
+        addItem(selectedProduct.value)
+    }
+    triggers?.value.push('success');
+    navigateTo('/cart')
+    
+}
+
 definePageMeta({
     layout: "app"
+})
+onMounted(() => {
+    splitSkus()
 })
 </script>
 <template>
     <!-- breadcrumbs  -->
-    <TheBreadcrumbs class="col-span-12"/>
+    <TheBreadcrumbs class="col-span-12" />
 
     <!-- TODO: REFACTOR MAKE IMAGE CAROUSEL -->
     <section
         class="col-span-12 w-full container flex-grow mx-auto max-w-[1200px] border-b py-5 lg:grid lg:grid-cols-2 lg:py-10">
         <!-- image gallery -->
 
-        <div class="container mx-auto px-4">
-            <img class="w-full" :src="product_detailp" alt="Sofa image" />
-
-            <div class="mt-3 grid grid-cols-4 gap-4">
-                <div>
-                    <img class="cursor-pointer" :src="kitchenp" alt="kitchen image" />
+        <div class="container mx-auto px-4 ">
+            <img class="h-96 object-cover w-96 mx-auto" :src="selectedImage" alt="placeholder" />
+            
+            <div class="mt-4 grid grid-cols-4 gap-4" >
+                <div v-for="file in selectedProduct?.files" :key="`${file?.id}-${file?.path}`">
+                    <img class="cursor-pointer w-48 object-cover h-36 max-h-36" 
+                    @click="selectedImage = file?.url ?? imgplaceholder"
+                    :src="file?.url ?? imgplaceholder" alt="placeholder" />
                 </div>
 
-                <div>
+                <!-- <div>
                     <img class="cursor-pointer" :src="living_roomp" alt="kitchen image" />
                 </div>
 
@@ -73,16 +133,16 @@ definePageMeta({
 
                 <div>
                     <img class="cursor-pointer" :src="product_chairp" alt="kitchen image" />
-                </div>
+                </div> -->
             </div>
             <!-- /image gallery  -->
         </div>
 
         <!-- description  -->
         <!-- TODO: REFACTOR PRODUCT DESCRIPTIONS -->
-        <div class="mx-auto px-5 lg:px-5">
-            <h2 class="pt-3 text-2xl font-bold lg:pt-0">BIG ITALIAN SOFA</h2>
-            <div class="mt-1">
+        <div class="mx-auto px-5 lg:px-5 w-full">
+            <h2 class="pt-3 text-2xl font-bold lg:pt-0">{{ selectedProduct?.name }}</h2>
+            <!-- <div class="mt-1">
                 <div class="flex items-center">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
                         class="h-4 w-4 text-yellow-400">
@@ -121,32 +181,41 @@ definePageMeta({
 
                     <p class="ml-3 text-sm text-gray-400">(150 reviews)</p>
                 </div>
-            </div>
+            </div> -->
 
             <p class="mt-5 font-bold">
-                Availability: <span class="text-green-600">In Stock</span>
+                Disponibilidad: <span class="text-green-600">{{ selectedProduct?.status }}</span>
             </p>
-            <p class="font-bold">Brand: <span class="font-normal">Apex</span></p>
+            <!-- <p class="font-bold">Brand: <span class="font-normal">Apex</span></p> -->
             <p class="font-bold">
-                Cathegory: <span class="font-normal">Sofa</span>
+                Categoría: <span class="font-normal">{{ data.find((cat) => selectedProduct.category_id === cat.id)?.name ??
+                    'Unknown' }}</span>
             </p>
             <p class="font-bold">
-                SKU: <span class="font-normal">BE45VGTRK</span>
+                SKU: <span class="font-normal">{{ selectedProduct?.skus[0]?.sku ?? 'Unknonw' }}</span>
             </p>
 
             <p class="mt-4 text-4xl font-bold text-violet-900">
-                $450 <span class="text-xs text-gray-400 line-through">$550</span>
+                ${{ selectedProduct?.price }} <span class="text-xs text-gray-400 line-through">${{ selectedProduct?.price *
+                    1.5 }}</span>
             </p>
 
             <p class="pt-5 text-sm leading-5 text-gray-500">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem
-                exercitationem voluptate sint eius ea assumenda provident eos
-                repellendus qui neque! Velit ratione illo maiores voluptates commodi
-                eaque illum, laudantium non!
+                {{ selectedProduct?.description }}
             </p>
 
-            <div class="mt-6">
-                <p class="pb-2 text-xs text-gray-500">Size</p>
+            <div class="mt-6" v-for="(sku, index) in skus" :key="`title-${sku}-${index}`">
+
+                <p class="pb-2 text-xs text-gray-500">Attribute {{ index }}</p>
+                <div class="flex gap-1">
+                    <div v-for="(option, oId) in sku" :key="`option-${sku}-${option}-${oId}`"
+                        class="flex min-h-8 min-w-8 cursor-pointer items-center justify-center px-2
+                        border duration-100 hover:bg-neutral-100 hover:dark:text-black  focus:ring-2 focus:ring-gray-500 active:ring-2 active:ring-gray-500">
+                        {{ option }}
+                    </div>
+
+                </div>
+                <!-- <p class="pb-2 text-xs text-gray-500">Size</p>
 
                 <div class="flex gap-1">
                     <div
@@ -171,10 +240,10 @@ definePageMeta({
                         class="flex h-8 w-8 cursor-pointer items-center justify-center border duration-100 hover:bg-neutral-100 focus:ring-2 focus:ring-gray-500 active:ring-2 active:ring-gray-500">
                         XL
                     </div>
-                </div>
+                </div> -->
             </div>
 
-            <div class="mt-6">
+            <!-- <div class="mt-6">
                 <p class="pb-2 text-xs text-gray-500">Color</p>
 
                 <div class="flex gap-1">
@@ -188,21 +257,21 @@ definePageMeta({
                         class="h-8 w-8 cursor-pointer border border-white bg-red-900 focus:ring-2 focus:ring-gray-500 active:ring-2 active:ring-gray-500">
                     </div>
                 </div>
-            </div>
+            </div> -->
 
             <div class="mt-6">
                 <p class="pb-2 text-xs text-gray-500">Quantity</p>
 
                 <div class="flex">
-                    <button
+                    <button @click="substractAmount"
                         class="flex h-8 w-8 cursor-pointer items-center justify-center border duration-100 hover:bg-neutral-100 focus:ring-2 focus:ring-gray-500 active:ring-2 active:ring-gray-500">
                         &minus;
                     </button>
                     <div
                         class="flex h-8 w-8 cursor-text items-center justify-center border-t border-b active:ring-gray-500">
-                        1
+                        {{ amount }}
                     </div>
-                    <button
+                    <button @click="addAmount"
                         class="flex h-8 w-8 cursor-pointer items-center justify-center border duration-100 hover:bg-neutral-100 focus:ring-2 focus:ring-gray-500 active:ring-2 active:ring-gray-500">
                         &#43;
                     </button>
@@ -211,6 +280,7 @@ definePageMeta({
             <!-- TODO: REFACTOR ICONS -->
             <div class="mt-7 flex flex-row items-center gap-6">
                 <button
+                    @click="submitItem()"
                     class="flex h-12 w-1/3 items-center justify-center bg-violet-900 text-white duration-100 hover:bg-blue-800">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="mr-3 h-4 w-4">
@@ -233,9 +303,9 @@ definePageMeta({
         </div>
     </section>
 
-    <!-- TODO: REFACTOR -> product details  -->
+    <!-- TODO: REFACTOR -> product details Maybe Data -->
 
-    <section class="col-span-12 w-full container mx-auto max-w-[1200px] px-5 py-5 lg:py-10">
+    <!-- <section class="col-span-12 w-full container mx-auto max-w-[1200px] px-5 py-5 lg:py-10">
         <h2 class="text-xl">Product details</h2>
         <p class="mt-4 lg:w-3/4">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta
@@ -270,7 +340,7 @@ definePageMeta({
                 </tr>
             </tbody>
         </table>
-    </section>
+    </section> -->
     <!-- /product details  -->
 
     <!-- /description  -->
