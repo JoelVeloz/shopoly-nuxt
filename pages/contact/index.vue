@@ -3,6 +3,10 @@ import ContactSections from "@/components/compositions/ContactSections.vue";
 
 import { views } from "@/assets/settings.json"
 
+
+definePageMeta({
+    layout: 'app'
+})
 </script>
 <template>
   <ContactSections v-for="(section, index) in views.contact.sections" :key="`${section.type}-${index}`" 

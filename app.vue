@@ -1,10 +1,10 @@
 <script setup lang="ts">
 
 // Make this automatic based on login
-const layout = "app";
+// const layout = "app";
 </script>
 <template>
-  <NuxtLayout :name="layout">
+  <NuxtLayout >
     
     <NuxtPage />
   </NuxtLayout>

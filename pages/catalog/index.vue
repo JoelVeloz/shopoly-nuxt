@@ -5,6 +5,9 @@ import  CatalogSections from "@/components/compositions/CatalogSections.vue"
 const { data: productsData, loading, totalPages } = useItem();
 
 
+definePageMeta({
+    layout: 'app'
+})
 </script>
 <template>
     <CatalogSections

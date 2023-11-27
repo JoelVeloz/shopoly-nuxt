@@ -8,6 +8,10 @@ import { storeToRefs } from 'pinia';
 const {totalItems} = cartStore();
 const { items:cartData } = storeToRefs(cartStore()); 
 
+
+definePageMeta({
+    layout: 'app'
+})
 </script>
 <template>
       <TheBreadcrumbs class="col-span-12" />

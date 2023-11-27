@@ -3,7 +3,9 @@ import HomeSections from '@/components/compositions/HomeSections.vue';
 
 import { views } from "@/assets/settings.json"
 
-
+definePageMeta({
+    layout: 'app'
+})
 </script>
 <template>
     

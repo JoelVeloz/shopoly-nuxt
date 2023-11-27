@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import BaseButton from '@/components/BaseButton.vue';
 import { patrick } from "@/constants/assets";
+
+definePageMeta({
+    layout: 'blank'
+})
 </script>
 <template>
     <div class="h-screen w-scree">
