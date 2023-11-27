@@ -1,11 +1,12 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   alias: {
-    "@components/*": "./components/*",
-    "@assets/*": "./assets/*",
+    "@components": "./components",
+    "@assets": "./assets",
   },
+  pages: true,
   devtools: { enabled: true },
-  modules: ["@nuxt/ui", "@pinia/nuxt"],
+  modules: ["@nuxt/ui", "@pinia/nuxt", "@vueuse/nuxt"],
   pinia: {
     storesDirs: ["./stores/**"],
   },

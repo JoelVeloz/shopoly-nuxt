@@ -1,7 +1,7 @@
 
-import type { ApiResponse } from "@/interfaces/IApiResponse";
-import type { IItem } from "@/interfaces/IItem";
-import { useQueryItemStore } from "@/stores/queryItemStore";
+import type { ApiResponse } from "@@/interfaces/IApiResponse";
+import type { IItem } from "@@/interfaces/IItem";
+import { useQueryItemStore } from "@@/stores/queryItemStore";
 import { storeToRefs } from "pinia";
 
 export const useQueryItem = () => {

@@ -1,0 +1,182 @@
+{
+  "settings": {
+      "business_name": "Mi tienda",
+      "business_phone": "593978759814",
+      "business_email": null,
+      "facebook_url": null,
+      "instagram_url": null,
+      "tiktok_url": null,
+      "ws_message": "Hola, \u00bfEn qu\u00e9 podemos ayudarte?",
+      "privacy_policies": null,
+      "terms_conditions": null,
+      "frontend_web": "1",
+      "api": "0",
+      "image_logo": "https:\/\/mitienda1.shopoly.store\/api\/files\/Setting\/MhpvUTJz8RZMHVnEN4DnWeVmf76M2mqzaNBVx1Ki.png",
+      "image_favicon": "https:\/\/mitienda1.shopoly.store\/api\/files\/Setting\/mXzaqrtBCMF4padgwb14mjJBAjf53Mig79eYim9s.png",
+      "email_template_welcome_user": null
+  }
+  ,
+  "views": {
+    "home": {
+      "sections": [
+        {
+          "type": "hero",
+          "alignment": "left",
+          "title": "¡Los mejores diseños para tu hogar!",
+          "subtitle": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequatur aperiam natus, nulla, obcaecati nesciunt, itaque adipisci earum ducimus pariatur eaque labore.",
+          "action": "redirect-catalog"
+        },
+        {
+            "type": "badges",
+            "content": [
+              {
+                "icon": "truck",
+                "title": "Envío Gratis",
+                "subtitle": "En compras desde $20"
+              },
+  
+              {
+                "icon": "money",
+                "title": "Ámalo o Cámbialo",
+                "subtitle": "Garantía de 30 días"
+              },
+  
+              {
+                "icon": "help",
+                "title": "Soporte 24/7",
+                "subtitle": "Atención al Cliente"
+              }
+            ]
+        },
+        {
+          "type": "grid",
+          "cells": "6",
+          "title": "COMPRAS POR CATEGORÍA",
+          "model": "categories"
+        },
+        {
+          "type": "slider",
+          "cells": "4",
+          "title": "LO MÁS RECIENTE",
+          "model": "products"
+        },
+        {
+          "type": "banner",
+          "title": "OFERTA DE TEMPORADA",
+          "accent-text": "15% DESCUENTO",
+          "subtitle": "SILLAS DE HOGAR, MESAS Y MANTELES",
+          "action": "redirect-product-detail"
+        },
+        {
+          "type": "grid",
+          "cells": "8",
+          "title": "RECOMENDADO PARA TI",
+          "model": "products"
+        }
+      ]
+    },
+    "catalog": {
+        "sections" : [
+            {
+                "type": "breadcrumbs"
+                
+            },
+            {
+                "type": "catalog"    
+            }
+        ]
+    },
+    "about": {
+        "sections": [
+            {
+            "type": "hero",
+            "title": "¿Quiénes Somos?",
+            "alignment": "center",
+            "subtitle": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequatur aperiam natus, nulla, obcaecati nesciunt, itaque adipisci earum ducimus pariatur eaque labore."
+          },
+          
+          {
+            "type": "logo",
+            "title": "Desde 1999"
+          },
+          {
+            "type": "mission-vision"
+          },
+          {
+            "type": "text",
+            "title": "Nuestra Misión:",
+            "subtitle": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum placeat odit, est eum dolorem esse totam iusto necessitatibus eligendi illo doloribus vero aperiam atque tempora repudiandae molestiae nemo distinctio quisquam!"
+          },
+          {
+            "type": "grid",
+            "cells": "3",
+            "title": "",
+            "model": "pictures"
+          },
+          {
+            "type": "text",
+            "title": "",
+            "subtitle": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum placeat odit, est eum dolorem esse totam iusto necessitatibus eligendi illo doloribus vero aperiam atque tempora repudiandae molestiae nemo distinctio quisquam!"
+          },
+          {
+            "type": "text",
+            "title": "Nuestra Visión:",
+            "subtitle": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum placeat odit, est eum dolorem esse totam iusto necessitatibus eligendi illo doloribus vero aperiam atque tempora repudiandae molestiae nemo distinctio quisquam!"
+          },
+          {
+            "type": "text",
+            "title": "Valores:",
+            "subtitle": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum placeat odit, est eum dolorem esse totam iusto necessitatibus eligendi illo doloribus vero aperiam atque tempora repudiandae molestiae nemo distinctio quisquam!"
+          },
+          {
+            "type": "grid",
+            "cells": "3",
+            "title": "",
+            "model": "pictures"
+          }
+        ]
+    },
+    "contact": {
+      "sections": [
+        {
+          "type": "hero",
+          "alignment":"center",
+          "title": "Contáctanos",
+          "subtitle": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequatur aperiam natus, nulla, obcaecati nesciunt, itaque adipisci earum ducimus pariatur eaque labore."
+        },
+        {
+          "type": "subsidiaries",
+          "content" : [
+            {
+              "name": "Sucursal Gye",
+              "email": "sucursal@delivery.org",
+              "phone_number": "+8(911)339-88-88",
+              "ws_number": "+8(911)339-88-88",
+              "telegram_account": "@sucrusal"
+            },
+            {
+              "name": "Sucursal Sauces",
+              "email": "sucursal@delivery.org",
+              "phone_number": "+8(911)339-88-88",
+              "ws_number": "+8(911)339-88-88",
+              "telegram_account": "@sucrusal"
+            },
+            {
+              "name": "Sucursal La Joya",
+              "email": "sucursal@delivery.org",
+              "phone_number": "+8(911)339-88-88",
+              "ws_number": "+8(911)339-88-88",
+              "telegram_account": "@sucrusal"
+            }
+          ]
+        },
+        {
+          "type": "contact-form",
+          "title": "¿Aún Tienes Dudas?",
+          "subtitle": "Llena el formulario y te responderemos en la mayor brevedad posible"
+        }
+      ]
+    },
+    "cart": {}
+  }
+}

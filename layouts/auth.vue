@@ -1,10 +1,5 @@
-<script lang="ts" setup></script>
-
 <template>
   <div>
-    Layout: auth
-    <slot />
+      <slot ></slot>
   </div>
 </template>
-
-<style scoped></style>

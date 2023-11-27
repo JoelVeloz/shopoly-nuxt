@@ -1,9 +1,8 @@
-<script lang="ts" setup>
-</script>
+<script lang="ts" setup></script>
 
 <template>
   <div>
-    Page: home
+    Page: cart
   </div>
 </template>
 
