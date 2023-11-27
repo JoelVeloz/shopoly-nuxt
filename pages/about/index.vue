@@ -1,9 +1,12 @@
-<script lang="ts" setup></script>
+<script setup lang="ts">
+//@ts-nocheck
+import { views } from "@assets/settings.json"
+import AboutSections from '@/components/compositions/AboutSections.vue';
 
+</script>
 <template>
-  <div>
-    Page: about
-  </div>
+    
+    <AboutSections v-for="(section, index) in views.about.sections" :key="`${section.type}-${index}`" 
+   :section="section"/>
+   
 </template>
-
-<style scoped></style>

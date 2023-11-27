@@ -23,7 +23,7 @@ useHead({
 })
 </script>
 <template>
-    <div>
+    <ClientOnly>
 
         <TheHeader />
         <TheNavbar />
@@ -43,5 +43,5 @@ useHead({
         </div>
 
 
-    </div>
+    </ClientOnly>
 </template>

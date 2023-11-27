@@ -5,7 +5,7 @@ import CompanyLogo from '@components/CompanyLogo.vue';
 
 import { mission_familyp, mission_interiorp, mission_materialsp } from "@@/constants/assets"
 import { about_bg } from '@@/constants/assets';
-import { ISection } from '@/interfaces/ISection';
+import { type ISection } from '@/interfaces/ISection';
 
 defineProps<{
     section: ISection,

@@ -19,7 +19,6 @@
   "dependencies": {
     "@nuxt/ui": "^2.11.0",
     "@pinia/nuxt": "^0.5.1",
-    "@splidejs/vue-splide": "^0.6.12",
     "@vueuse/nuxt": "^10.6.1",
     "nuxt-swiper": "^1.2.2",
     "pinia": "^2.1.7"

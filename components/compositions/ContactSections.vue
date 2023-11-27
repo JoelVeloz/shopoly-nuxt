@@ -2,8 +2,8 @@
 import HeroSection from "@@/components/compositions/HeroSection.vue";
 // import { ISubsidiary } from "@/interfaces/ISubsidiary.ts";
 import SubsidiaryCard from "@components/SubsidiaryCard.vue"
-import ContactForm from "@@/components/compositions/ContactForm.vue";
-import { ISection } from "@/interfaces/ISection";
+import ContactForm from "@/components/compositions/ContactForm.vue";
+import { type ISection } from "@/interfaces/ISection";
 
 import { contactbg } from '@@/constants/assets';
 
